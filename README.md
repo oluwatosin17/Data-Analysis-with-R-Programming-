@@ -89,107 +89,81 @@ You can also create a vector containing characters or logicals.
 
 > c(TRUE, FALSE, TRUE)
 
-**Determining the properties of vectors **
-- Every vector you create will have two key properties: type and length.  
-You can determine what type of vector you are working with by using the typeof() function. Place the code for the vector inside the parentheses of the function. When you run the function, R will tell you the type. For example: 
+**Tidy Verse**
+- Tidyverse is actually a collection of
+packages in R with a common design philosophy for data manipulation,
+exploration, and visualization.
 
-> typeof(c(“a” , “b”))
+- tidyverse helps
+you do everything from importing and transforming data to exploring and
+visualizing it.
 
-> [1] "character"
+- there are four packages that are an essential part of the workflow for data analysts: ggplot2,
+dplyr, tidyr and readr.
 
-- Notice that the output of the typeof function in this example is “character”. Similarly, if you use the typeof function on a vector with integer values, then the output will include “integer” instead: 
+-  Ggplot2 is used for data visualization,
+specifically plots. With ggplot2, you can create
+a variety of data viz by applying different visual properties
+to the data variables. 
 
-> typeof(c(1L , 3L))
+- Tidyr is a package used for
+data cleaning to make tidy data. it's data where every part of a data table or data frame
+is the right type in the right place. Tidyr works with wide and
+long data to make sure this happens.
 
-> [1] "integer"
-
-
-- You can determine the length of an existing vector–meaning the number of elements it contains–by using the length() function. In this example, we use an assignment operator to assign the vector to the variable x. Then, we apply the length() function to the variable. When we run the function, R tells us the length is 3.
-
-> x <- c(33.5, 57.75, 120.05)
-
-> length(x)
-
-> [1] 3
-
-- You can also check if a vector is a specific type by using an is function: is.logical(), is.double(), is.integer(), is.character(). In this example, R returns a value of TRUE because the vector contains integers. 
-
-> x <- c(2L, 5L, 11L)
-
-> is.integer(x)
-
-> [1] TRUE
-
-- In this example, R returns a value of FALSE because the vector does not contain characters, rather it contains logicals.
-
-> y <- c(TRUE, TRUE, FALSE)
-
-> is.character(y)
-
-> #> [1] FALSE
+- readr,
+which is used for importing data. The most common function
+from readr is read_csv. This will import a CSV file into R. 
 
 
-**Naming vectors **
-- All types of vectors can be named. Names are useful for writing readable code and describing objects in R. You can name the elements of a vector with the names() function. As an example, let’s assign the variable x to a new vector with three elements. 
+- Dplyr offers a consistent set
+of functions that help you complete some common
+data manipulation tasks. For example, the select function
+picks variables based on their names, and the filter function finds cases
+where certain conditions are true. 
 
-> x <- c(1, 3, 5)
+- Tibble works with data frames. Purrr works with functions and vectors helping make your code
+easier to write and more expressive. Stringr includes functions that make
+it easier to work with strings. Forcats provides tools that solve
+common problems with factors.
+factors store categorical data in R where the data values are limited and usually based on a finite
+group like country or year. 
 
-- You can use the names() function to assign a different name to each element of the vector. 
-> names(x) <- c("a", "b", "c")
--  Now, when you run the code, R shows that the first element of the vector is named a, the second b, and the third c.
-> x 
+- a pipe is a tool in
+R for expressing a sequence of
+multiple operations. In other words, it
+takes the output of one statement and makes it the input of the
+next statement. Instead of typing out functions contained inside other functions, you could use the pipe
+operator to do the same work. In programming, we
+describe this as nested. Nested describes
+code that performs a particular function and is contained within code that
+performs a broader function. You can think of a
+pipe as a way to code the phrase "and then."
 
-> #> a b c 
 
-> #> 1 3 5
+- To load any dataset
+already installed, we use the data function. We then add the name of the
+data set, "ToothGrowth."
 
-- Remember that an atomic vector can only contain elements of the same type. If you want to store elements of different types in the same data structure, you can use a list. 
-**
-Creating lists**
-- Lists are different from atomic vectors because their elements can be of any type—like dates, data frames, vectors, matrices, and more. Lists can even contain other lists. 
-- You can create a list with the list() function. Similar to the c() function, the list() function is just list followed by the values you want in your list inside parentheses: list(x, y, z, …). In this example, we create a list that contains four different kinds of elements: character ("a"), integer (1L), double (1.5), and logical (TRUE). 
 
-> list("a", 1L, 1.5, TRUE)
 
-- Like we already mentioned, lists can contain other lists. If you want, you can even store a list inside a list inside a list—and so on. 
 
-> list(list(list(1 , 3, 5)))
 
-**Determining the structure of lists **
-- If you want to find out what types of elements a list contains, you can use the str() function. To do so, place the code for the list inside the parentheses of the function. When you run the function, R will display the data structure of the list by describing its elements and their types.
 
-- Let’s apply the str() function to our first example of a list. 
-> str(list("a", 1L, 1.5, TRUE))
 
-- We run the function, then R tells us that the list contains four elements, and that the elements consist of four different types: character (chr), integer (int), number (num), and logical (logi). 
 
-> #> List of 4
-> #>  $ : chr "a"
-> #>  $ : int 1
-> #>  $ : num 1.5
-> #>  $ : logi TRUE
 
-- Let’s use the str() function to discover the structure of our second example.  First, let’s assign the list to the variable z to make it easier to input in the str() function. 
-> z <- list(list(list(1 , 3, 5)))
 
-Let’s run the function. 
-> str(z)
-> #> List of 1
-> #>  $ :List of 1
-> #>   ..$ :List of 3
-> #>   .. ..$ : num 1
-> #>   .. ..$ : num 3
-> #>   .. ..$ : num 5
 
-- The indentation of the $ symbols reflect the nested structure of this list. Here, there are three levels (so there is a list within a list within a list).  
 
-**Naming lists**
-- Lists, like vectors, can be named. You can name the elements of a list when you first create it with the list() function:
-> list("Chicago” = 1, “New York” = 2, “Los Angeles” = 3)
-> $Chicago
-> [1] 1
-> $`New York`
-> [1] 2
-> $`Los Angeles`
 
-[1] 3
+
+
+
+
+
+
+
+
+
+
