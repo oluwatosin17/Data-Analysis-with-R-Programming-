@@ -146,6 +146,76 @@ already installed, we use the data function. We then add the name of the
 data set, "ToothGrowth."
 
 
+- tibbles. In the tidyverse,
+tibbles are like streamlined data frames. They make working with data easier, but they're a little different
+from standard data frames. First, tibbles never change
+the data types of the inputs. They won't change your strings
+to factors or anything else. You can make more changes to base data
+frames, but tibbles are easier to use. This saves time because you won't
+have to do as much cleaning or changing data types in tibbles. Tibbles also never change
+the names of your variables, and they never create row names. Finally, tibbles make
+printing in R easier. They won't accidentally overload your
+console because they're automatically set to pull up only the first 10 rows and
+as many columns as fit on screen. Super useful when you're working
+with large sets of data.
+
+**Tibbles**
+- Tibbles are a little different from standard data frames. A data frame is a collection of columns, like a spreadsheet or a SQL table. Tibbles are like streamlined data frames that are automatically set to pull up only the first 10 rows of a dataset, and only as many columns as can fit on the screen. This is really useful when you’re working with large sets of data. Unlike data frames, tibbles never change the names of your variables, or the data types of your inputs. Overall, you can make more changes to data frames, but tibbles are easier to use. The tibble package is part of the core tidyverse. So, if you’ve already installed the tidyverse, you have what you need to start working with tibbles. 
+
+**Creating tibbles **
+as_tibble(dataframe)
+
+**readr functions**
+The goal of readr is to provide a fast and friendly way to read rectangular data. readr supports several read_ functions. Each function refers to a specific file format.
+
+- read_csv(): comma-separated values (.csv) files
+- read_tsv(): tab-separated values files
+- read_delim(): general delimited files
+- read_fwf(): fixed-width files
+- read_table(): tabular files where columns are separated by white-space
+- read_log(): web log files
+
+- **The Skimr package**
+makes summarizing data really easy and let's you
+skim through it more quickly. We'll install it now. The Janitor package has
+functions for cleaning data. 
+
+- **The skim without charts**
+function gives us a pretty comprehensive summary of a dataset.
+**Glimpse** to get a really quick idea of
+what's in this dataset. When we run this command, it'll show us a
+summary of the data. 
+
+- We can use select to specify certain columns or to exclude columns we
+don't need right now.The select statement
+is useful for pulling just a subset of variables
+from a large dataset. The rename function makes it
+easy to change column names. maybe we want all of our column names
+to be in uppercase. We can use the **rename_with()**
+function to do that. This will automatically make
+our column names uppercase. The clean names function in
+the Janitor package will automatically make sure that the column names are
+unique and consistent. 
+
+
+- There are compelling reasons to use both formats. But as an analyst, it is important to know how to tidy data when you need to. In R, you may have a data frame in a wide format that has several variables and conditions for each variable. It might feel a bit messy. 
+
+- That’s where pivot_longer()comes in. As part of the tidyr package, you can use this R function to lengthen the data in a data frame by increasing the number of rows and decreasing the number of columns. Similarly, if you want to convert your data to have more columns and fewer rows, you would use the pivot_wider()function.
+
+
+- In R, we can actually
+quantify bias by comparing the actual outcome of our data with the
+predicted outcome.  Basically, the bias function
+finds the average amount that the actual outcome is greater than the
+predicted outcome. It's included in the
+SimDesign package.  If the model is unbiased, the outcome should be
+pretty close to zero. A high result means that
+your data might be biased. A good thing to know
+before you analyze it
+
+
+
+
 
 
 
