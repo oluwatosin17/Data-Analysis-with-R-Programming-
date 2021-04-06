@@ -1,0 +1,213 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(ggplot2)
+library(palmerpenguins)
+head(penguins)
+```
+
+
+
+```{r}
+ggplot(data = penguins)+
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+
+```{r}
+data("diamonds")
+head(diamonds)
+```
+
+```{r}
+ggplot(data = diamonds)+geom_bar(mapping = aes(x = cut))
+```
+
+
+```{r}
+ggplot(data = penguins)+geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+The plot shows a
+positive relationship between the two variables. In other words, the
+larger the penguin, the longer the flipper.
+
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm))+geom_point()
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()
+```
+The Gentoo are the largest of
+the three penguin species. The legend just to the right of the plot
+shows us that the blue points refer to the Gentoo penguins.
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, shape = species))+
+  geom_point()
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = species))+
+  geom_point()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = species, size = species))+
+  geom_point()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, alpha = species))+
+  geom_point()
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(alpha = 0.5)
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(color = "purple")
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_smooth(color = "purple")
+
+```
+The geom underscore
+smooth function's useful for showing general
+trends in our data. The line clearly shows the positive relationship between body mass and flipper length. The larger the penguin, the longer the flipper. We can even use two
+geoms in the same plot. Let's say we want to show
+the relationship between the trend line and the
+data points more clearly. We can combine the code for geom underscore point and the code for geom
+underscore smooth by adding a plus symbol after
+geom underscore smooth
+
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_smooth(color = "purple")+geom_point()
+
+```
+
+```{r}
+ggplot(data = penguins ) + 
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g, linetype = species))
+```
+ The geom underscore
+jitter function creates a scatter plot and then adds a small amount of random noise to each
+point in the plot. Jittering helps us deal
+with over-plotting, which happens when
+the data points in a plot overlap with each other. Jittering makes the
+points easier to find.
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_jitter()
+```
+
+```{r}
+ggplot(data = diamonds, aes( x = cut))+geom_bar()
+```
+
+When you use geom underscore bar, R automatically counts how many times each x-value
+appears in the data, and then shows the
+counts on the y-axis. The default for geom underscore
+bar is to count rows.
+
+
+```{r}
+ggplot(data = diamonds, aes( x = cut, color = cut))+geom_bar()
+```
+
+```{r}
+ggplot(data = diamonds, aes( x = cut, fill = cut))+geom_bar()
+```
+```{r}
+ggplot(data = diamonds, aes( x = cut, fill = clarity))+geom_bar()+
+```
+
+
+```{r}
+ggplot(data = diamonds, aes( x = cut, fill = clarity))+geom_bar()+
+  facet_wrap(~clarity)+
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+Facet allows you to display smaller groups, or subset of your data
+facet_wrap for single variable
+facet_grid for two variables
+
+```{r}
+ggplot(data = diamonds, aes( x = color, fill = cut))+geom_bar()+
+  facet_wrap(~cut)+
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+facet_grid(~sex~species)
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+facet_grid(~species)
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+facet_grid(~sex)
+```
+Annotation
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+ 
+  labs(title = "Palmer Penguins: Body Mass vs Flipper Length")
+
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+ 
+  labs(title = "Palmer Penguins: Body Mass vs Flipper Length", subtitle = "Sample of Three Penguin Species")
+
+```
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+ 
+  labs(title = "Palmer Penguins: Body Mass vs Flipper Length", subtitle = "Sample of Three Penguin Species", caption = "Data collected by Dr Kisten Gorman")
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()+ 
+  labs(title = "Palmer Penguins: Body Mass vs Flipper Length", subtitle = "Sample of Three Penguin Species")+annotate("text", x = 220, y = 3500, label = "The Gentoos are the largest", color = "purple",fontface = "bold", size = 4.5, angle = 25)
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_point()
+```
+
+```{r}
+ggsave("Three Penguins Species.png")
+```
+
+```{r}
+ggplot(data = penguins) + 
+     geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, size = species))
+```
+

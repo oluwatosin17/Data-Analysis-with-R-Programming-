@@ -1,0 +1,24 @@
+---
+title: "R Markdown Intro"
+author: "Oluwatosin
+Date: 02/04/2021
+Output: html_document
+---
+
+## Setting up my environment
+Notes: Setting up my environment by loading
+* 'tidyverse' 
+* 'palmer penguins' packages
+
+```{r loading packages}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+[click here!](www.rstudio.com)
+
+The vitae package contains templates for creating and maintaining a résumé or curriculum vitae (CV)
+The rticles package provides templates for various journals and publishers
+The learnr package makes it easy to turn any R Markdown document into an interactive tutorial 
+The bookdown package facilitates writing books and long-form articles
+The flexdashboard package lets you publish a group of related data visualizations as a dashboard
